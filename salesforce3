@@ -1,0 +1,35 @@
+public class demo1 {
+    public void createAccount(String Name,String Phone){
+       Account acc = new Account();
+        acc.Name = Name;
+        acc.Phone = Phone;
+        insert acc;
+        System.debug('Account created '+acc.Name);
+    }
+    
+    public void UpdateOlderAccount(String Name){
+      List<Account>oldAccounts= new List<Account>();
+        for(Account acc:[SELECT Name FROM Account WHERE Phone='8888']){
+          acc.Name = Name;
+            update acc;
+            System.debug('Account updated'+acc.Name);
+            
+        }
+            update oldAccounts;
+    }
+       
+    public void deleteAccount(){
+      List<Account>oldAccounts= new List<Account>();
+        for(Account acc:[SELECT Name,Phone FROM Account WHERE Name ='CHUI']){
+          delete acc;
+            System.debug('DELETED'+acc.Name);
+        }
+            
+        update oldAccounts;
+    }
+        
+        
+}
+
+                                                
+ 
